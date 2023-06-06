@@ -4,6 +4,25 @@ import Button from './Button';
 const Calculator = () => {
   const [previousOperand, setPreviousOperand] = useState('');
   const [currentOperand, setCurrentOperand] = useState('');
+  const [calButton, setCalButton] = useState([
+    '7',
+    '8',
+    '9',
+    '+',
+    '4',
+    '5',
+    '6',
+    '-',
+    '1',
+    '2',
+    '3',
+    'x',
+    '0',
+    '.',
+    '/',
+    '=',
+    'DEl',
+  ]);
   const handleClick = (value) => {
     if (
       value == '=' ||
@@ -37,23 +56,9 @@ const Calculator = () => {
       </div>
 
       <div className="actions">
-        <Button value="7" handleClick={handleClick} />
-        <Button value="8" handleClick={handleClick} />
-        <Button value="9" handleClick={handleClick} />
-        <Button value="+" handleClick={handleClick} />
-        <Button value="4" handleClick={handleClick} />
-        <Button value="5" handleClick={handleClick} />
-        <Button value="6" handleClick={handleClick} />
-        <Button value="-" handleClick={handleClick} />
-        <Button value="1" handleClick={handleClick} />
-        <Button value="2" handleClick={handleClick} />
-        <Button value="3" handleClick={handleClick} />
-        <Button value="x" handleClick={handleClick} />
-        <Button value="0" handleClick={handleClick} />
-        <Button value="." handleClick={handleClick} />
-        <Button value="/" handleClick={handleClick} />
-        <Button value="=" handleClick={handleClick} />
-        <Button value="DEl" handleClick={handleClick} />
+        {calButton.map((btnValue) => {
+          return <Button value={btnValue} handleClick={handleClick} />;
+        })}
       </div>
     </div>
   );
